@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B7FCB39D1977476A00376586 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FCB39C1977476A00376586 /* Foundation.framework */; };
+		B7FCB39F1977476A00376586 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FCB39E1977476A00376586 /* CoreGraphics.framework */; };
+		B7FCB3A11977476A00376586 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FCB3A01977476A00376586 /* UIKit.framework */; };
+		B7FCB3A31977476A00376586 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FCB3A21977476A00376586 /* CoreData.framework */; };
+		B7FCB3A91977476A00376586 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7FCB3A71977476A00376586 /* InfoPlist.strings */; };
+		B7FCB3AB1977476A00376586 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B7FCB3AA1977476A00376586 /* main.m */; };
+		B7FCB3AF1977476A00376586 /* WFBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B7FCB3AE1977476A00376586 /* WFBAppDelegate.m */; };
+		B7FCB3B21977476A00376586 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FCB3B01977476A00376586 /* Main.storyboard */; };
+		B7FCB3B51977476A00376586 /* iRemember.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B7FCB3B31977476A00376586 /* iRemember.xcdatamodeld */; };
+		B7FCB3B81977476A00376586 /* WFBMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7FCB3B71977476A00376586 /* WFBMasterViewController.m */; };
+		B7FCB3BB1977476A00376586 /* WFBDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B7FCB3BA1977476A00376586 /* WFBDetailViewController.m */; };
+		B7FCB3BD1977476A00376586 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7FCB3BC1977476A00376586 /* Images.xcassets */; };
+		B7FCB3C41977476A00376586 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FCB3C31977476A00376586 /* XCTest.framework */; };
+		B7FCB3C51977476A00376586 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FCB39C1977476A00376586 /* Foundation.framework */; };
+		B7FCB3C61977476A00376586 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FCB3A01977476A00376586 /* UIKit.framework */; };
+		B7FCB3C71977476A00376586 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7FCB3A21977476A00376586 /* CoreData.framework */; };
+		B7FCB3CF1977476B00376586 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B7FCB3CD1977476B00376586 /* InfoPlist.strings */; };
+		B7FCB3D11977476B00376586 /* iRememberTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B7FCB3D01977476B00376586 /* iRememberTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B7FCB3C81977476A00376586 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B7FCB3911977476A00376586 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B7FCB3981977476A00376586;
+			remoteInfo = iRemember;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B7FCB3991977476A00376586 /* iRemember.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRemember.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7FCB39C1977476A00376586 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B7FCB39E1977476A00376586 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B7FCB3A01977476A00376586 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B7FCB3A21977476A00376586 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B7FCB3A61977476A00376586 /* iRemember-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRemember-Info.plist"; sourceTree = "<group>"; };
+		B7FCB3A81977476A00376586 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7FCB3AA1977476A00376586 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B7FCB3AC1977476A00376586 /* iRemember-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRemember-Prefix.pch"; sourceTree = "<group>"; };
+		B7FCB3AD1977476A00376586 /* WFBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBAppDelegate.h; sourceTree = "<group>"; };
+		B7FCB3AE1977476A00376586 /* WFBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBAppDelegate.m; sourceTree = "<group>"; };
+		B7FCB3B11977476A00376586 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B7FCB3B41977476A00376586 /* iRemember.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iRemember.xcdatamodel; sourceTree = "<group>"; };
+		B7FCB3B61977476A00376586 /* WFBMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBMasterViewController.h; sourceTree = "<group>"; };
+		B7FCB3B71977476A00376586 /* WFBMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBMasterViewController.m; sourceTree = "<group>"; };
+		B7FCB3B91977476A00376586 /* WFBDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WFBDetailViewController.h; sourceTree = "<group>"; };
+		B7FCB3BA1977476A00376586 /* WFBDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WFBDetailViewController.m; sourceTree = "<group>"; };
+		B7FCB3BC1977476A00376586 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B7FCB3C21977476A00376586 /* iRememberTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRememberTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7FCB3C31977476A00376586 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		B7FCB3CC1977476A00376586 /* iRememberTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRememberTests-Info.plist"; sourceTree = "<group>"; };
+		B7FCB3CE1977476B00376586 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		B7FCB3D01977476B00376586 /* iRememberTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRememberTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B7FCB3961977476A00376586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7FCB39F1977476A00376586 /* CoreGraphics.framework in Frameworks */,
+				B7FCB3A31977476A00376586 /* CoreData.framework in Frameworks */,
+				B7FCB3A11977476A00376586 /* UIKit.framework in Frameworks */,
+				B7FCB39D1977476A00376586 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7FCB3BF1977476A00376586 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7FCB3C41977476A00376586 /* XCTest.framework in Frameworks */,
+				B7FCB3C71977476A00376586 /* CoreData.framework in Frameworks */,
+				B7FCB3C61977476A00376586 /* UIKit.framework in Frameworks */,
+				B7FCB3C51977476A00376586 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B7FCB3901977476A00376586 = {
+			isa = PBXGroup;
+			children = (
+				B7FCB3A41977476A00376586 /* iRemember */,
+				B7FCB3CA1977476A00376586 /* iRememberTests */,
+				B7FCB39B1977476A00376586 /* Frameworks */,
+				B7FCB39A1977476A00376586 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B7FCB39A1977476A00376586 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B7FCB3991977476A00376586 /* iRemember.app */,
+				B7FCB3C21977476A00376586 /* iRememberTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B7FCB39B1977476A00376586 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B7FCB39C1977476A00376586 /* Foundation.framework */,
+				B7FCB39E1977476A00376586 /* CoreGraphics.framework */,
+				B7FCB3A01977476A00376586 /* UIKit.framework */,
+				B7FCB3A21977476A00376586 /* CoreData.framework */,
+				B7FCB3C31977476A00376586 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B7FCB3A41977476A00376586 /* iRemember */ = {
+			isa = PBXGroup;
+			children = (
+				B7FCB3AD1977476A00376586 /* WFBAppDelegate.h */,
+				B7FCB3AE1977476A00376586 /* WFBAppDelegate.m */,
+				B7FCB3B01977476A00376586 /* Main.storyboard */,
+				B7FCB3B61977476A00376586 /* WFBMasterViewController.h */,
+				B7FCB3B71977476A00376586 /* WFBMasterViewController.m */,
+				B7FCB3B91977476A00376586 /* WFBDetailViewController.h */,
+				B7FCB3BA1977476A00376586 /* WFBDetailViewController.m */,
+				B7FCB3BC1977476A00376586 /* Images.xcassets */,
+				B7FCB3B31977476A00376586 /* iRemember.xcdatamodeld */,
+				B7FCB3A51977476A00376586 /* Supporting Files */,
+			);
+			path = iRemember;
+			sourceTree = "<group>";
+		};
+		B7FCB3A51977476A00376586 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7FCB3A61977476A00376586 /* iRemember-Info.plist */,
+				B7FCB3A71977476A00376586 /* InfoPlist.strings */,
+				B7FCB3AA1977476A00376586 /* main.m */,
+				B7FCB3AC1977476A00376586 /* iRemember-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B7FCB3CA1977476A00376586 /* iRememberTests */ = {
+			isa = PBXGroup;
+			children = (
+				B7FCB3D01977476B00376586 /* iRememberTests.m */,
+				B7FCB3CB1977476A00376586 /* Supporting Files */,
+			);
+			path = iRememberTests;
+			sourceTree = "<group>";
+		};
+		B7FCB3CB1977476A00376586 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B7FCB3CC1977476A00376586 /* iRememberTests-Info.plist */,
+				B7FCB3CD1977476B00376586 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B7FCB3981977476A00376586 /* iRemember */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7FCB3D41977476B00376586 /* Build configuration list for PBXNativeTarget "iRemember" */;
+			buildPhases = (
+				B7FCB3951977476A00376586 /* Sources */,
+				B7FCB3961977476A00376586 /* Frameworks */,
+				B7FCB3971977476A00376586 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iRemember;
+			productName = iRemember;
+			productReference = B7FCB3991977476A00376586 /* iRemember.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B7FCB3C11977476A00376586 /* iRememberTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7FCB3D71977476B00376586 /* Build configuration list for PBXNativeTarget "iRememberTests" */;
+			buildPhases = (
+				B7FCB3BE1977476A00376586 /* Sources */,
+				B7FCB3BF1977476A00376586 /* Frameworks */,
+				B7FCB3C01977476A00376586 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B7FCB3C91977476A00376586 /* PBXTargetDependency */,
+			);
+			name = iRememberTests;
+			productName = iRememberTests;
+			productReference = B7FCB3C21977476A00376586 /* iRememberTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B7FCB3911977476A00376586 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = WFB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Auburn University";
+				TargetAttributes = {
+					B7FCB3C11977476A00376586 = {
+						TestTargetID = B7FCB3981977476A00376586;
+					};
+				};
+			};
+			buildConfigurationList = B7FCB3941977476A00376586 /* Build configuration list for PBXProject "iRemember" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B7FCB3901977476A00376586;
+			productRefGroup = B7FCB39A1977476A00376586 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B7FCB3981977476A00376586 /* iRemember */,
+				B7FCB3C11977476A00376586 /* iRememberTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B7FCB3971977476A00376586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7FCB3BD1977476A00376586 /* Images.xcassets in Resources */,
+				B7FCB3A91977476A00376586 /* InfoPlist.strings in Resources */,
+				B7FCB3B21977476A00376586 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7FCB3C01977476A00376586 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7FCB3CF1977476B00376586 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B7FCB3951977476A00376586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7FCB3AF1977476A00376586 /* WFBAppDelegate.m in Sources */,
+				B7FCB3AB1977476A00376586 /* main.m in Sources */,
+				B7FCB3BB1977476A00376586 /* WFBDetailViewController.m in Sources */,
+				B7FCB3B81977476A00376586 /* WFBMasterViewController.m in Sources */,
+				B7FCB3B51977476A00376586 /* iRemember.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B7FCB3BE1977476A00376586 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B7FCB3D11977476B00376586 /* iRememberTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B7FCB3C91977476A00376586 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B7FCB3981977476A00376586 /* iRemember */;
+			targetProxy = B7FCB3C81977476A00376586 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B7FCB3A71977476A00376586 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7FCB3A81977476A00376586 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		B7FCB3B01977476A00376586 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7FCB3B11977476A00376586 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B7FCB3CD1977476B00376586 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B7FCB3CE1977476B00376586 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B7FCB3D21977476B00376586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B7FCB3D31977476B00376586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B7FCB3D51977476B00376586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iRemember/iRemember-Prefix.pch";
+				INFOPLIST_FILE = "iRemember/iRemember-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B7FCB3D61977476B00376586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iRemember/iRemember-Prefix.pch";
+				INFOPLIST_FILE = "iRemember/iRemember-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		B7FCB3D81977476B00376586 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iRemember.app/iRemember";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iRemember/iRemember-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "iRememberTests/iRememberTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		B7FCB3D91977476B00376586 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/iRemember.app/iRemember";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "iRemember/iRemember-Prefix.pch";
+				INFOPLIST_FILE = "iRememberTests/iRememberTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B7FCB3941977476A00376586 /* Build configuration list for PBXProject "iRemember" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7FCB3D21977476B00376586 /* Debug */,
+				B7FCB3D31977476B00376586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7FCB3D41977476B00376586 /* Build configuration list for PBXNativeTarget "iRemember" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7FCB3D51977476B00376586 /* Debug */,
+				B7FCB3D61977476B00376586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B7FCB3D71977476B00376586 /* Build configuration list for PBXNativeTarget "iRememberTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B7FCB3D81977476B00376586 /* Debug */,
+				B7FCB3D91977476B00376586 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B7FCB3B31977476A00376586 /* iRemember.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B7FCB3B41977476A00376586 /* iRemember.xcdatamodel */,
+			);
+			currentVersion = B7FCB3B41977476A00376586 /* iRemember.xcdatamodel */;
+			path = iRemember.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B7FCB3911977476A00376586 /* Project object */;
+}
