@@ -10,7 +10,16 @@
 
 @interface WFBDetailViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UITextField *titleText;
+@property (weak, nonatomic) IBOutlet UITextField *bodyText;
+@property (weak, nonatomic) IBOutlet UITextField *tagsText;
+@property (weak, nonatomic) IBOutlet UIDatePicker *publishDatePicker;
+
 @property (strong, nonatomic) id detailItem;
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+- (IBAction)titleTextChanged:(UITextField *)sender;
+- (IBAction)bodyTextChanged:(UITextField *)sender;
+- (IBAction)tagsTextChanged:(UITextField *)sender;
+- (IBAction)storyDateChanged:(UIDatePicker *)sender;
+
 @end
