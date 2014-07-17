@@ -17,7 +17,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq9-QA-ai8" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-437" y="86"/>
+            <point key="canvasLocation" x="-1042" y="95"/>
         </scene>
         <!--Master View Controller - Master-->
         <scene sceneID="VgW-fR-Quf">
@@ -67,7 +67,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="23" y="86"/>
+            <point key="canvasLocation" x="-582" y="95"/>
         </scene>
         <!--Detail View Controller - Detail-->
         <scene sceneID="Cn3-H9-jdl">
@@ -77,7 +77,7 @@
                         <viewControllerLayoutGuide type="top" id="cIm-e0-J51"/>
                         <viewControllerLayoutGuide type="bottom" id="a0L-h9-sNL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MMQ-IT-qOo">
+                    <view key="view" contentMode="scaleToFill" id="MMQ-IT-qOo" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -87,6 +87,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="textFieldDoneEditing:" destination="Ah7-4n-0Wa" eventType="editingDidEndOnExit" id="mCJ-YZ-I1D"/>
                                     <action selector="titleTextChanged:" destination="Ah7-4n-0Wa" eventType="editingDidEnd" id="WC7-5r-096"/>
                                 </connections>
                             </textField>
@@ -118,6 +119,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="bodyTextChanged:" destination="Ah7-4n-0Wa" eventType="editingDidEnd" id="xPK-bv-bU2"/>
+                                    <action selector="textFieldDoneEditing:" destination="Ah7-4n-0Wa" eventType="editingDidEndOnExit" id="CLc-x8-nKg"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f8g-XV-qtV">
@@ -127,6 +129,7 @@
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <action selector="tagsTextChanged:" destination="Ah7-4n-0Wa" eventType="editingDidEnd" id="HWn-dA-x9z"/>
+                                    <action selector="textFieldDoneEditing:" destination="Ah7-4n-0Wa" eventType="editingDidEndOnExit" id="qhB-LM-fTq"/>
                                 </connections>
                             </textField>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="A0v-2s-GdK">
@@ -169,6 +172,9 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="Ah7-4n-0Wa" eventType="touchDown" id="ufX-kh-vqY"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Story" id="cra-N8-TIN"/>
                     <connections>
@@ -180,7 +186,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="466" y="86"/>
+            <point key="canvasLocation" x="-139" y="95"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

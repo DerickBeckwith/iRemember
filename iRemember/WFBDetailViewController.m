@@ -67,4 +67,14 @@
     
 }
 
+- (IBAction)textFieldDoneEditing:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
+
+- (IBAction)backgroundTap:(id)sender {
+    [self.titleText resignFirstResponder];
+    [self.bodyText resignFirstResponder];
+    [self.tagsText resignFirstResponder];
+}
+
 @end
