@@ -31,7 +31,6 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [[self.detailItem valueForKey:@"timeStamp"] description];
     }
 }
 
@@ -46,6 +45,36 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)titleTextChanged:(UITextField *)sender
+{
+    
+}
+
+- (IBAction)bodyTextChanged:(UITextField *)sender
+{
+    
+}
+
+- (IBAction)tagsTextChanged:(UITextField *)sender
+{
+    
+}
+
+- (IBAction)storyDateChanged:(UIDatePicker *)sender
+{
+    
+}
+
+- (IBAction)textFieldDoneEditing:(UITextField *)sender {
+    [sender resignFirstResponder];
+}
+
+- (IBAction)backgroundTap:(id)sender {
+    [self.titleText resignFirstResponder];
+    [self.bodyText resignFirstResponder];
+    [self.tagsText resignFirstResponder];
 }
 
 @end
