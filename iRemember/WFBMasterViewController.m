@@ -55,6 +55,8 @@
         NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
         abort();
     }
+    
+    [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
 #pragma mark - Table View
