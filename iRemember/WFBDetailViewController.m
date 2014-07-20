@@ -31,6 +31,10 @@
     // Update the user interface for the detail item.
 
     if (self.detailItem) {
+        self.titleText.text = [self.detailItem valueForKey:kTitleKey];
+        self.bodyText.text = [self.detailItem valueForKey:kBodyKey];
+        self.tagsText.text = [self.detailItem valueForKey:kTagsKey];
+        self.storyDatePicker.date = [self.detailItem valueForKey:kDateKey];
     }
 }
 
@@ -49,22 +53,22 @@
 
 - (IBAction)titleTextChanged:(UITextField *)sender
 {
-    
+    [self.detailItem setValue:sender.text forKey:kTitleKey];
 }
 
 - (IBAction)bodyTextChanged:(UITextField *)sender
 {
-    
+    [self.detailItem setValue:sender.text forKey:kBodyKey];
 }
 
 - (IBAction)tagsTextChanged:(UITextField *)sender
 {
-    
+    [self.detailItem setValue:sender.text forKey:kTagsKey];
 }
 
 - (IBAction)storyDateChanged:(UIDatePicker *)sender
 {
-    
+    [self.detailItem setValue:sender.date forKey:kDateKey];
 }
 
 - (IBAction)textFieldDoneEditing:(UITextField *)sender {

@@ -139,7 +139,7 @@
                                     <!--2014-07-17 00:40:39 +0000-->
                                 </date>
                                 <timeZone key="timeZone" name="America/Los_Angeles">
-                                    <mutableData key="data">
+                                    <data key="data">
 VFppZgAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAC5AAAABAAAABCepkign7sVkKCGKqChmveQ
 y4kaoNIj9HDSYSYQ1v50INiArZDa/tGg28CQENzes6DdqayQ3r6VoN+JjpDgnneg4WlwkOJ+WaDjSVKQ
 5F47oOUpNJDmR1gg5xJREOgnOiDo8jMQ6gccIOrSFRDr5v4g7LH3EO3G4CDukdkQ76/8oPBxuxDxj96g
@@ -157,7 +157,7 @@ f5gqkAABAAECAwEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEAAQABAAEA
 AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
-</mutableData>
+</data>
                                 </timeZone>
                                 <connections>
                                     <action selector="storyDateChanged:" destination="Ah7-4n-0Wa" eventType="valueChanged" id="6eW-Pu-aqZ"/>
@@ -179,7 +179,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                     <navigationItem key="navigationItem" title="Story" id="cra-N8-TIN"/>
                     <connections>
                         <outlet property="bodyText" destination="VG9-5f-0l8" id="DGt-7I-Uxe"/>
-                        <outlet property="publishDatePicker" destination="A0v-2s-GdK" id="CeB-Km-9Um"/>
+                        <outlet property="storyDatePicker" destination="A0v-2s-GdK" id="riB-Xc-cTo"/>
                         <outlet property="tagsText" destination="f8g-XV-qtV" id="v3k-5k-TUm"/>
                         <outlet property="titleText" destination="07k-xo-pgT" id="06v-mZ-6wi"/>
                     </connections>
