@@ -10,10 +10,10 @@
 #import "WFBDetailViewController.h"
 
 static NSString * const kStoryEntityName = @"Story";
-static NSString * const kTitleKey = @"title";
-static NSString * const kBodyKey = @"body";
-static NSString * const kTagsKey = @"tags";
-static NSString * const kDateTimeKey = @"datetime";
+static NSString * const kTitleKey = @"storyTitle";
+static NSString * const kBodyKey = @"storyBody";
+static NSString * const kTagsKey = @"storyTags";
+static NSString * const kDateKey = @"storyDate";
 
 @interface WFBMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
@@ -50,7 +50,10 @@ static NSString * const kDateTimeKey = @"datetime";
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
+    [newManagedObject setValue:@"New Story" forKey:kTitleKey];
+    [newManagedObject setValue:@"Story text" forKey:kBodyKey];
+    [newManagedObject setValue:@"" forKey:kTagsKey];
+    [newManagedObject setValue:[NSDate date] forKey:kDateKey];
     
     // Save the context.
     NSError *error = nil;
@@ -131,14 +134,14 @@ static NSString * const kDateTimeKey = @"datetime";
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     // Edit the entity name as appropriate.
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Event" inManagedObjectContext:self.managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:kStoryEntityName inManagedObjectContext:self.managedObjectContext];
     [fetchRequest setEntity:entity];
     
     // Set the batch size to a suitable number.
     [fetchRequest setFetchBatchSize:20];
     
     // Edit the sort key as appropriate.
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeStamp" ascending:NO];
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kDateKey ascending:NO];
     NSArray *sortDescriptors = @[sortDescriptor];
     
     [fetchRequest setSortDescriptors:sortDescriptors];
@@ -222,8 +225,9 @@ static NSString * const kDateTimeKey = @"datetime";
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    NSManagedObject *object = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
+    NSManagedObject *story = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = [story valueForKey:kTitleKey];
+    cell.detailTextLabel.text = [story valueForKey:kBodyKey];
 }
 
 @end
