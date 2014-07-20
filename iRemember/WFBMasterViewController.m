@@ -7,8 +7,13 @@
 //
 
 #import "WFBMasterViewController.h"
-
 #import "WFBDetailViewController.h"
+
+static NSString * const kStoryEntityName = @"Story";
+static NSString * const kTitleKey = @"title";
+static NSString * const kBodyKey = @"body";
+static NSString * const kTagsKey = @"tags";
+static NSString * const kDateTimeKey = @"datetime";
 
 @interface WFBMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
