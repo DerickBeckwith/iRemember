@@ -9,12 +9,6 @@
 #import "WFBMasterViewController.h"
 #import "WFBDetailViewController.h"
 
-static NSString * const kStoryEntityName = @"Story";
-static NSString * const kTitleKey = @"storyTitle";
-static NSString * const kBodyKey = @"storyBody";
-static NSString * const kTagsKey = @"storyTags";
-static NSString * const kDateKey = @"storyDate";
-
 @interface WFBMasterViewController ()
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath;
 @end
@@ -52,7 +46,7 @@ static NSString * const kDateKey = @"storyDate";
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
     [newManagedObject setValue:@"New Story" forKey:kTitleKey];
     [newManagedObject setValue:@"Story text" forKey:kBodyKey];
-    [newManagedObject setValue:@"" forKey:kTagsKey];
+    [newManagedObject setValue:@"tag1, tag2, tag3" forKey:kTagsKey];
     [newManagedObject setValue:[NSDate date] forKey:kDateKey];
     
     // Save the context.
