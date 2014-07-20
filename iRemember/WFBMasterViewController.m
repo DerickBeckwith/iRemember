@@ -221,7 +221,9 @@
 {
     NSManagedObject *story = [self.fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = [story valueForKey:kTitleKey];
-    cell.detailTextLabel.text = [story valueForKey:kBodyKey];
+    NSString *storyDate = [NSDateFormatter localizedStringFromDate:[story valueForKey:kDateKey]
+                                dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
+    cell.detailTextLabel.text = storyDate;
 }
 
 @end

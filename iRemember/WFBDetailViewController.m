@@ -53,22 +53,22 @@
 
 - (IBAction)titleTextChanged:(UITextField *)sender
 {
-    
+    [self.detailItem setValue:sender.text forKey:kTitleKey];
 }
 
 - (IBAction)bodyTextChanged:(UITextField *)sender
 {
-    
+    [self.detailItem setValue:sender.text forKey:kBodyKey];
 }
 
 - (IBAction)tagsTextChanged:(UITextField *)sender
 {
-    
+    [self.detailItem setValue:sender.text forKey:kTagsKey];
 }
 
 - (IBAction)storyDateChanged:(UIDatePicker *)sender
 {
-    
+    [self.detailItem setValue:sender.date forKey:kDateKey];
 }
 
 - (IBAction)textFieldDoneEditing:(UITextField *)sender {
