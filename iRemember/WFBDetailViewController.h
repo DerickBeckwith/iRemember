@@ -18,8 +18,11 @@ static NSString * const kDateKey = @"storyDate";
 static NSString * const kLocationLatitude = @"storyLocationLatitude";
 static NSString * const kLocationLongitude = @"storyLocationLongitude";
 
-@interface WFBDetailViewController : UIViewController
-<CLLocationManagerDelegate, UIImagePickerControllerDelegate>
+@interface WFBDetailViewController : UIViewController <
+CLLocationManagerDelegate,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate
+>
 
 @property (strong, nonatomic) id detailItem;
 

@@ -57,6 +57,62 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)pickMediaFromSource:(UIImagePickerControllerSourceType)sourceType
+{
+    NSArray *mediaTypes = [UIImagePickerController
+                           availableMediaTypesForSourceType:sourceType];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType]
+        && [mediaTypes count] > 0) {
+        NSArray *mediaTypes = [UIImagePickerController
+                               availableMediaTypesForSourceType:sourceType];
+        UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+        picker.mediaTypes = mediaTypes;
+        picker.delegate = self;
+        picker.allowsEditing = YES;
+        picker.sourceType = sourceType;
+        [self presentViewController:picker animated:YES completion:NULL];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle:@"Error accessing media"
+                              message:@"Unsupported media source."delegate:nil
+                              cancelButtonTitle:@"Drats!" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+- (UIImage *)shrinkImage:(UIImage *)original toSize:(CGSize)size
+{
+    UIGraphicsBeginImageContextWithOptions(size, YES, 0);
+    
+    CGFloat originalAspect = original.size.width / original.size.height;
+    CGFloat targetAspect = size.width / size.height;
+    CGRect targetRect;
+    
+    if (originalAspect > targetAspect) {
+        // original is wider than target
+        targetRect.size.width = size.width;
+        targetRect.size.height = size.height * targetAspect / originalAspect;
+        targetRect.origin.x = 0;
+        targetRect.origin.y = (size.height - targetRect.size.height) * 0.5;
+    } else if (originalAspect < targetAspect) {
+        // original is narrower than target
+        targetRect.size.width = size.width * originalAspect / targetAspect;
+        targetRect.size.height = size.height;
+        targetRect.origin.x = (size.width - targetRect.size.width) * 0.5;
+        targetRect.origin.y = 0;
+    } else {
+        // original and target have same aspect ratio
+        targetRect = CGRectMake(0, 0, size.width, size.height);
+    }
+    
+    [original drawInRect:targetRect];
+    UIImage *final = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return final;
+}
+
 - (IBAction)titleTextChanged:(UITextField *)sender
 {
     [self.detailItem setValue:sender.text forKey:kTitleKey];
@@ -92,6 +148,16 @@
     [self.locationManager startUpdatingLocation];
 }
 
+- (IBAction)shootPictureOrVideo:(id)sender
+{
+    [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
+}
+
+- (IBAction)selectExistingPictureOrVideo:(id)sender
+{
+    [self pickMediaFromSource:UIImagePickerControllerSourceTypePhotoLibrary];
+}
+
 #pragma mark - CLLocationManagerDelegate Methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -124,6 +190,26 @@
                           initWithTitle:@"Error getting Location"
                           message:errorType delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
     [alert show];
+}
+
+#pragma mark - Image Picker Controller Delegate methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    NSString *selectedMediaType = info[UIImagePickerControllerMediaType];
+    
+    if ([selectedMediaType isEqual:(NSString *)kUTTypeImage]) {
+        UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+        self.image = [self shrinkImage:chosenImage toSize:self.imageView.bounds.size];
+    }
+    
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end
