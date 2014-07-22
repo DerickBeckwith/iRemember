@@ -15,7 +15,7 @@ static NSString * const kBodyKey = @"storyBody";
 static NSString * const kTagsKey = @"storyTags";
 static NSString * const kDateKey = @"storyDate";
 
-@interface WFBDetailViewController : UIViewController
+@interface WFBDetailViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 @property (weak, nonatomic) IBOutlet UITextField *bodyText;
