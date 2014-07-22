@@ -35,6 +35,8 @@
         self.bodyText.text = [self.detailItem valueForKey:kBodyKey];
         self.tagsText.text = [self.detailItem valueForKey:kTagsKey];
         self.storyDatePicker.date = [self.detailItem valueForKey:kDateKey];
+        self.latitudeLabel.text = [self.detailItem valueForKey:kLocationLatitude];
+        self.longitudeLabel.text = [self.detailItem valueForKey:kLocationLongitude];
     }
 }
 
@@ -103,8 +105,12 @@
                               currentLocation.coordinate.latitude];
         NSString *longitude = [NSString stringWithFormat:@"%.2f\u00B0",
                                currentLocation.coordinate.longitude];
+        
         self.latitudeLabel.text = latitude;
         self.longitudeLabel.text = longitude;
+        
+        [self.detailItem setValue:latitude forKey:kLocationLatitude];
+        [self.detailItem setValue:longitude forKey:kLocationLongitude];
     }
     [self.locationManager stopUpdatingLocation];
 }
@@ -112,6 +118,7 @@
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     NSString *errorType = (error.code == kCLErrorDenied) ? @"Access Denied" : @"Unknown Error";
+    
     NSLog(@"didFailWithError: %@", errorType);
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Error getting Location"
