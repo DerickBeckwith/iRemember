@@ -40,6 +40,7 @@ UINavigationControllerDelegate
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *takePictureButton;
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *lastChosenMediaType;
 
 - (IBAction)titleTextChanged:(UITextField *)sender;
 - (IBAction)bodyTextChanged:(UITextField *)sender;

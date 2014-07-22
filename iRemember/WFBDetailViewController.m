@@ -57,6 +57,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self updateDisplay];
+}
+
+- (void)updateDisplay
+{
+    if ([self.lastChosenMediaType isEqual:(NSString *)kUTTypeImage]) {
+        self.imageView.image = self.image;
+    }
+}
+
 - (void)pickMediaFromSource:(UIImagePickerControllerSourceType)sourceType
 {
     NSArray *mediaTypes = [UIImagePickerController
@@ -197,9 +211,9 @@
 - (void)imagePickerController:(UIImagePickerController *)picker
 didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    NSString *selectedMediaType = info[UIImagePickerControllerMediaType];
+    self.lastChosenMediaType = info[UIImagePickerControllerMediaType];
     
-    if ([selectedMediaType isEqual:(NSString *)kUTTypeImage]) {
+    if ([self.lastChosenMediaType isEqual:(NSString *)kUTTypeImage]) {
         UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
         self.image = [self shrinkImage:chosenImage toSize:self.imageView.bounds.size];
     }
