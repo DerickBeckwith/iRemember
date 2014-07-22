@@ -7,19 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 static NSString * const kStoryEntityName = @"Story";
 static NSString * const kTitleKey = @"storyTitle";
 static NSString * const kBodyKey = @"storyBody";
 static NSString * const kTagsKey = @"storyTags";
 static NSString * const kDateKey = @"storyDate";
+static NSString * const kLocationLatitude = @"storyLocationLatitude";
+static NSString * const kLocationLongitude = @"storyLocationLongitude";
 
-@interface WFBDetailViewController : UIViewController
+@interface WFBDetailViewController : UIViewController <CLLocationManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 @property (weak, nonatomic) IBOutlet UITextField *bodyText;
 @property (weak, nonatomic) IBOutlet UITextField *tagsText;
 @property (weak, nonatomic) IBOutlet UIDatePicker *storyDatePicker;
+
+// Used with Core Location
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
 
 @property (strong, nonatomic) id detailItem;
 
@@ -27,5 +35,6 @@ static NSString * const kDateKey = @"storyDate";
 - (IBAction)bodyTextChanged:(UITextField *)sender;
 - (IBAction)tagsTextChanged:(UITextField *)sender;
 - (IBAction)storyDateChanged:(UIDatePicker *)sender;
+- (IBAction)getCurrentLocation:(UIButton *)sender;
 
 @end

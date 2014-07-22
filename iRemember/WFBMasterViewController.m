@@ -48,6 +48,8 @@
     [newManagedObject setValue:@"Story text" forKey:kBodyKey];
     [newManagedObject setValue:@"tag1, tag2, tag3" forKey:kTagsKey];
     [newManagedObject setValue:[NSDate date] forKey:kDateKey];
+    [newManagedObject setValue:@"" forKey:kLocationLatitude];
+    [newManagedObject setValue:@"" forKey:kLocationLongitude];
     
     // Save the context.
     NSError *error = nil;
