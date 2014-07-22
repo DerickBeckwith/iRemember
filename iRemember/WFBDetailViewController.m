@@ -46,7 +46,7 @@
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,15 +95,17 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     CLLocation *currentLocation = [locations lastObject];
-    NSLog(@"didUpdateToLocation: %@", currentLocation);
     
-    NSString *latitude = [NSString stringWithFormat:@"%.2f\u00B0",
-                          currentLocation.coordinate.latitude];
-    NSString *longitude = [NSString stringWithFormat:@"%.2f\u00B0",
-                           currentLocation.coordinate.longitude];
-    self.latitudeLabel.text = latitude;
-    self.longitudeLabel.text = longitude;
-    
+    if (currentLocation != nil) {
+        NSLog(@"didUpdateToLocation: %@", currentLocation);
+        
+        NSString *latitude = [NSString stringWithFormat:@"%.2f\u00B0",
+                              currentLocation.coordinate.latitude];
+        NSString *longitude = [NSString stringWithFormat:@"%.2f\u00B0",
+                               currentLocation.coordinate.longitude];
+        self.latitudeLabel.text = latitude;
+        self.longitudeLabel.text = longitude;
+    }
     [self.locationManager stopUpdatingLocation];
 }
 
