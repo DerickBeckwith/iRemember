@@ -37,6 +37,7 @@
         self.storyDatePicker.date = [self.detailItem valueForKey:kDateKey];
         self.latitudeLabel.text = [self.detailItem valueForKey:kLocationLatitude];
         self.longitudeLabel.text = [self.detailItem valueForKey:kLocationLongitude];
+        self.imageView.image = [self loadImage];
     }
 }
 
@@ -172,6 +173,31 @@
     [self pickMediaFromSource:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
+- (void)saveImage: (UIImage*)image
+{
+    if (image != nil)
+    {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                             NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                          @"test.png"];
+        NSData* data = UIImagePNGRepresentation(image);
+        [data writeToFile:path atomically:YES];
+    }
+}
+
+- (UIImage*)loadImage
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                         NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString* path = [documentsDirectory stringByAppendingPathComponent:
+                      @"test.png"];
+    UIImage* image = [UIImage imageWithContentsOfFile:path];
+    return image;
+}
+
 #pragma mark - CLLocationManagerDelegate Methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -216,6 +242,7 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
     if ([self.lastChosenMediaType isEqual:(NSString *)kUTTypeImage]) {
         UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
         self.image = [self shrinkImage:chosenImage toSize:self.imageView.bounds.size];
+        [self saveImage:self.image];
     }
     
     [picker dismissViewControllerAnimated:YES completion:NULL];

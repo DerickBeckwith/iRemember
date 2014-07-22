@@ -63,7 +63,7 @@
                             <outlet property="delegate" destination="pGg-6v-bdr" id="Y6K-Cp-Qkv"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="iRemember" id="tQt-TN-PWz"/>
+                    <navigationItem key="navigationItem" title="My Stories" id="tQt-TN-PWz"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Cn-md-YlS" sceneMemberID="firstResponder"/>
             </objects>
@@ -223,7 +223,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                             <action selector="backgroundTap:" destination="Ah7-4n-0Wa" eventType="touchDown" id="ufX-kh-vqY"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="Story" id="cra-N8-TIN"/>
+                    <navigationItem key="navigationItem" title="Edit Story" id="cra-N8-TIN"/>
                     <connections>
                         <outlet property="bodyText" destination="VG9-5f-0l8" id="DGt-7I-Uxe"/>
                         <outlet property="imageView" destination="27L-ix-Fhq" id="1YL-ta-zka"/>
