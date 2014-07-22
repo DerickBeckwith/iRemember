@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 static NSString * const kStoryEntityName = @"Story";
 static NSString * const kTitleKey = @"storyTitle";
@@ -21,11 +22,17 @@ static NSString * const kDateKey = @"storyDate";
 @property (weak, nonatomic) IBOutlet UITextField *tagsText;
 @property (weak, nonatomic) IBOutlet UIDatePicker *storyDatePicker;
 
+// Used with Core Location
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
+
 @property (strong, nonatomic) id detailItem;
 
 - (IBAction)titleTextChanged:(UITextField *)sender;
 - (IBAction)bodyTextChanged:(UITextField *)sender;
 - (IBAction)tagsTextChanged:(UITextField *)sender;
 - (IBAction)storyDateChanged:(UIDatePicker *)sender;
+- (IBAction)getCurrentLocation:(UIButton *)sender;
 
 @end
