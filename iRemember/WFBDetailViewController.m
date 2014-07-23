@@ -28,8 +28,7 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-
+    // Update the user interface for the Story detail item.
     if (self.detailItem) {
         self.titleText.text = [self.detailItem valueForKey:kTitleKey];
         self.bodyText.text = [self.detailItem valueForKey:kBodyKey];
@@ -45,9 +44,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    // Setup the UI.
     [self configureView];
     
+    // Setup the location manager.
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -56,7 +57,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
@@ -68,6 +68,7 @@
 
 - (void)updateDisplay
 {
+    // Update the image view if the user selected one from the image picker.
     if ([self.lastChosenMediaType isEqual:(NSString *)kUTTypeImage]) {
         self.imageView.image = self.image;
     }
@@ -161,16 +162,19 @@
 
 - (IBAction)getCurrentLocation:(UIButton *)sender
 {
+    // Start receiving location updates from core location.
     [self.locationManager startUpdatingLocation];
 }
 
 - (IBAction)shootPictureOrVideo:(id)sender
 {
+    // When the user wants to take a new photo to use in the story.
     [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
 }
 
 - (IBAction)selectExistingPictureOrVideo:(id)sender
 {
+    // When the user wants to use a photo already stored in their photo library.
     [self pickMediaFromSource:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
@@ -178,14 +182,21 @@
 {
     if (image != nil)
     {
+        // Compose a valid file path to save the image to.
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString* path = [documentsDirectory stringByAppendingPathComponent:
                           @"test.png"];
+        
+        // Create the .png data from the image property's UIImage instance.
         NSData* data = UIImagePNGRepresentation(image);
+        
+        // Save the data to the .png file.
         [data writeToFile:path atomically:YES];
         NSLog(@"Saved photo to: %@", path);
+        
+        // Update the core data model with the path to the .png file.
         [self.detailItem setValue:path forKey:kImageFilepath];
     }
 }
@@ -203,7 +214,10 @@
 
 - (void)loadImageFromPath:(NSString *)path
 {
+    // Read the contents of the file into the image property.
     self.image = [UIImage imageWithContentsOfFile:path];
+    
+    // Set the image view to display the loaded image.
     self.imageView.image = self.image;
     NSLog(@"Loaded photo from: %@", path);
 }
@@ -217,25 +231,34 @@
     if (currentLocation != nil) {
         NSLog(@"didUpdateToLocation: %@", currentLocation);
         
+        // Get the coordinates as strings.
         NSString *latitude = [NSString stringWithFormat:@"%.2f\u00B0",
                               currentLocation.coordinate.latitude];
         NSString *longitude = [NSString stringWithFormat:@"%.2f\u00B0",
                                currentLocation.coordinate.longitude];
         
+        // Update the UI.
         self.latitudeLabel.text = latitude;
         self.longitudeLabel.text = longitude;
         
+        // Update the data model.
         [self.detailItem setValue:latitude forKey:kLocationLatitude];
         [self.detailItem setValue:longitude forKey:kLocationLongitude];
     }
+    
+    // Stop receiving location updates until the next time the user taps the 'Get Location' button.
+    // Doing this can save battery life.
     [self.locationManager stopUpdatingLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
+    // Access denied will happen if the user refused to allow the app to track their location.
     NSString *errorType = (error.code == kCLErrorDenied) ? @"Access Denied" : @"Unknown Error";
     
     NSLog(@"didFailWithError: %@", errorType);
+    
+    // Let the user know the location could not be obtained.
     UIAlertView *alert = [[UIAlertView alloc]
                           initWithTitle:@"Error getting Location"
                           message:errorType delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
@@ -249,17 +272,26 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     self.lastChosenMediaType = info[UIImagePickerControllerMediaType];
     
+    // The app only cares about still photos, so we need to filter out anything else, like videos.
     if ([self.lastChosenMediaType isEqual:(NSString *)kUTTypeImage]) {
+        
+        // Get the cropped image.
         UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+        
+        // Resize the image to fit into the image view and assign to the image property.
         self.image = [self shrinkImage:chosenImage toSize:self.imageView.bounds.size];
+        
+        // Save the image to a .png file so it can be retrieved later.
         [self saveImage:self.image];
     }
     
+    // Dismiss the image picker to return control flow back to the detail view controller.
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
+    // Simply dismiss the image picker if the user taps the cancel button.
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
