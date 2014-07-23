@@ -182,7 +182,7 @@
 {
     NSString *prefix = @"iRemember";
     NSString *guid = [[NSUUID new] UUIDString];
-    NSString *uniqueFileName = [NSString stringWithFormat:@"%@_%@", prefix, guid];
+    NSString *uniqueFileName = [NSString stringWithFormat:@"%@_%@.png", prefix, guid];
     return uniqueFileName;
 }
 
