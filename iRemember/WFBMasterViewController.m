@@ -36,6 +36,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)insertNewStory:(id)sender
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
