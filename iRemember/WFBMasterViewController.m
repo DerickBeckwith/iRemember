@@ -225,11 +225,34 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    // Fetch the story from core data.
     NSManagedObject *story = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    // Show the title of the story in the cell's label text.
     cell.textLabel.text = [story valueForKey:kTitleKey];
+    
+    // Show the story's date, and the location if present, in the cell's detail text.
     NSString *storyDate = [NSDateFormatter localizedStringFromDate:[story valueForKey:kDateKey]
                                 dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
-    cell.detailTextLabel.text = storyDate;
+    NSString *latitude = [[NSString alloc]
+                          initWithString:[story valueForKey:kLocationLatitude]];
+    NSString *longitude = [[NSString alloc]
+                           initWithString:[story valueForKey:kLocationLongitude]];
+    
+    if (latitude.length > 0 && longitude.length > 0) {
+        NSString *location = [NSString stringWithFormat:@"(%@, %@)", latitude, longitude];
+        NSString *detailText = [NSString stringWithFormat:@"%@ - %@", storyDate, location];
+        cell.detailTextLabel.text = detailText;
+    } else {
+        cell.detailTextLabel.text = storyDate;
+    }
+    
+    // Show the story's photo in the cell's image.
+    NSString *path = [story valueForKey:kImageFilepath];
+    
+    if (path != nil && path.length > 0) {
+        cell.imageView.image = [UIImage imageWithContentsOfFile:path];
+    }
 }
 
 @end
