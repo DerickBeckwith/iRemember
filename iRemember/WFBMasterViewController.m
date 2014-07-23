@@ -230,6 +230,13 @@
     NSString *storyDate = [NSDateFormatter localizedStringFromDate:[story valueForKey:kDateKey]
                                 dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterShortStyle];
     cell.detailTextLabel.text = storyDate;
+    
+    // Load the story's photo into the cell's image.
+    NSString *path = [story valueForKey:kImageFilepath];
+    
+    if (path != nil && path.length > 0) {
+        cell.imageView.image = [UIImage imageWithContentsOfFile:path];
+    }
 }
 
 @end
