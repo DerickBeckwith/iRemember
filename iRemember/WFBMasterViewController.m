@@ -70,6 +70,18 @@
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
+- (void)deleteFileAtPath:(NSString *)path
+{
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSError *error = nil;
+    
+    if ([fileManager removeItemAtPath:path error:&error] == YES) {
+        NSLog(@"Deleted file at:%@", path);
+    } else {
+        NSLog(@"Failed to remove file at path: %@. Error = %@", path, error);
+    }
+}
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -100,6 +112,11 @@
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        NSManagedObject *story = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NSString *path = [NSString stringWithString:[story valueForKey:kImageFilepath]];
+        if (path != nil && path.length > 0) {
+            [self deleteFileAtPath:path];
+        }
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
         NSError *error = nil;
