@@ -40,16 +40,17 @@
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    NSManagedObject *story = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:@"New Story" forKey:kTitleKey];
-    [newManagedObject setValue:@"Story text" forKey:kBodyKey];
-    [newManagedObject setValue:@"tag1, tag2, tag3" forKey:kTagsKey];
-    [newManagedObject setValue:[NSDate date] forKey:kDateKey];
-    [newManagedObject setValue:@"" forKey:kLocationLatitude];
-    [newManagedObject setValue:@"" forKey:kLocationLongitude];
+    [story setValue:@"" forKey:kTitleKey];
+    [story setValue:@"" forKey:kBodyKey];
+    [story setValue:@"" forKey:kTagsKey];
+    [story setValue:[NSDate date] forKey:kDateKey];
+    [story setValue:@"" forKey:kLocationLatitude];
+    [story setValue:@"" forKey:kLocationLongitude];
+    [story setValue:@"" forKey:kImageFilepath];
     
     // Save the context.
     NSError *error = nil;
@@ -208,16 +209,6 @@
 {
     [self.tableView endUpdates];
 }
-
-/*
-// Implementing the above methods to update the table view in response to individual changes may have performance implications if a large number of changes are made simultaneously. If this proves to be an issue, you can instead just implement controllerDidChangeContent: which notifies the delegate that all section and object changes have been processed. 
- 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    // In the simplest, most efficient, case, reload the table view.
-    [self.tableView reloadData];
-}
- */
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {

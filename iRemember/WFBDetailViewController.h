@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <MobileCoreServices/UTCoreTypes.h>
 
 static NSString * const kStoryEntityName = @"Story";
 static NSString * const kTitleKey = @"storyTitle";
@@ -16,8 +17,15 @@ static NSString * const kTagsKey = @"storyTags";
 static NSString * const kDateKey = @"storyDate";
 static NSString * const kLocationLatitude = @"storyLocationLatitude";
 static NSString * const kLocationLongitude = @"storyLocationLongitude";
+static NSString * const kImageFilepath = @"storyImageFilepath";
 
-@interface WFBDetailViewController : UIViewController <CLLocationManagerDelegate>
+@interface WFBDetailViewController : UIViewController <
+CLLocationManagerDelegate,
+UIImagePickerControllerDelegate,
+UINavigationControllerDelegate
+>
+
+@property (strong, nonatomic) id detailItem;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleText;
 @property (weak, nonatomic) IBOutlet UITextField *bodyText;
@@ -29,7 +37,11 @@ static NSString * const kLocationLongitude = @"storyLocationLongitude";
 @property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
 
-@property (strong, nonatomic) id detailItem;
+// Used for the photo taking feature
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *takePictureButton;
+@property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) NSString *lastChosenMediaType;
 
 - (IBAction)titleTextChanged:(UITextField *)sender;
 - (IBAction)bodyTextChanged:(UITextField *)sender;
