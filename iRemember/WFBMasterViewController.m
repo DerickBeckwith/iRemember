@@ -70,6 +70,18 @@
     [self performSegueWithIdentifier:@"showDetail" sender:self];
 }
 
+- (void)deleteFileAtPath:(NSString *)path
+{
+    NSFileManager *fileManager = [[NSFileManager alloc] init];
+    NSError *error = nil;
+    
+    if ([fileManager removeItemAtPath:path error:&error] == YES) {
+        NSLog(@"Deleted file at:%@", path);
+    } else {
+        NSLog(@"Failed to remove file at path: %@. Error = %@", path, error);
+    }
+}
+
 #pragma mark - Table View
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -98,14 +110,26 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Delete a story along with any associated photo.
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
+        
+        // Pull out the story managed object from the context
+        // so we can retrieve the path to the .png file that we need to delete.
+        NSManagedObject *story = [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NSString *path = [NSString stringWithString:[story valueForKey:kImageFilepath]];
+        
+        // Delete from the file system any stored photo belonging to this story.
+        if (path != nil && path.length > 0) {
+            [self deleteFileAtPath:path];
+        }
+        
+        // Delete the story from core data.
         [context deleteObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
         
+        // Save the context.
         NSError *error = nil;
         if (![context save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
@@ -164,9 +188,7 @@
     
 	NSError *error = nil;
 	if (![self.fetchedResultsController performFetch:&error]) {
-	     // Replace this implementation with code to handle the error appropriately.
-	     // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-	    NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
 	    abort();
 	}
     

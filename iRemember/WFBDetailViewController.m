@@ -178,6 +178,15 @@
     [self pickMediaFromSource:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
+- (NSString *)getUniqueFileName
+{
+    // Generate and return a unique file name using UUID.
+    NSString *prefix = @"iRemember";
+    NSString *guid = [[NSUUID new] UUIDString];
+    NSString *uniqueFileName = [NSString stringWithFormat:@"%@_%@.png", prefix, guid];
+    return uniqueFileName;
+}
+
 - (void)saveImage: (UIImage*)image
 {
     if (image != nil)
@@ -187,7 +196,7 @@
                                                              NSUserDomainMask, YES);
         NSString *documentsDirectory = [paths objectAtIndex:0];
         NSString* path = [documentsDirectory stringByAppendingPathComponent:
-                          @"test.png"];
+                          [self getUniqueFileName]];
         
         // Create the .png data from the image property's UIImage instance.
         NSData* data = UIImagePNGRepresentation(image);
@@ -199,17 +208,6 @@
         // Update the core data model with the path to the .png file.
         [self.detailItem setValue:path forKey:kImageFilepath];
     }
-}
-
-- (UIImage*)loadImage
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
-                                                         NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString* path = [documentsDirectory stringByAppendingPathComponent:
-                      @"test.png"];
-    UIImage* image = [UIImage imageWithContentsOfFile:path];
-    return image;
 }
 
 - (void)loadImageFromPath:(NSString *)path
