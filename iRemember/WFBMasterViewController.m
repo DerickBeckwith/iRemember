@@ -116,6 +116,13 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+        // There is no selected row for new stories,
+        // so just set the index path to fetch the first story.
+        if (!indexPath) {
+            indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        }
+        
         NSManagedObject *story = [[self fetchedResultsController] objectAtIndexPath:indexPath];
         [[segue destinationViewController] setDetailItem:story];
     }
