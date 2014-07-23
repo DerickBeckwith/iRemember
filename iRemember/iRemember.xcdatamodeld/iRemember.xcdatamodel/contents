@@ -2,13 +2,14 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13E28" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Story" syncable="YES">
         <attribute name="storyBody" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="storyDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="storyDate" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="storyImageFilepath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="storyLocationLatitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="storyLocationLongitude" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="storyTags" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="storyTitle" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Story" positionX="261" positionY="198" width="128" height="135"/>
+        <element name="Story" positionX="261" positionY="198" width="128" height="150"/>
     </elements>
 </model>

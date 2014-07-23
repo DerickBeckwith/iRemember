@@ -37,7 +37,8 @@
         self.storyDatePicker.date = [self.detailItem valueForKey:kDateKey];
         self.latitudeLabel.text = [self.detailItem valueForKey:kLocationLatitude];
         self.longitudeLabel.text = [self.detailItem valueForKey:kLocationLongitude];
-        self.imageView.image = [self loadImage];
+        NSString *path = [self.detailItem valueForKey:kImageFilepath];
+        [self loadImageFromPath:path];
     }
 }
 
@@ -184,6 +185,8 @@
                           @"test.png"];
         NSData* data = UIImagePNGRepresentation(image);
         [data writeToFile:path atomically:YES];
+        NSLog(@"Saved photo to: %@", path);
+        [self.detailItem setValue:path forKey:kImageFilepath];
     }
 }
 
@@ -196,6 +199,13 @@
                       @"test.png"];
     UIImage* image = [UIImage imageWithContentsOfFile:path];
     return image;
+}
+
+- (void)loadImageFromPath:(NSString *)path
+{
+    self.image = [UIImage imageWithContentsOfFile:path];
+    self.imageView.image = self.image;
+    NSLog(@"Loaded photo from: %@", path);
 }
 
 #pragma mark - CLLocationManagerDelegate Methods

@@ -40,16 +40,17 @@
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
     NSEntityDescription *entity = [[self.fetchedResultsController fetchRequest] entity];
-    NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+    NSManagedObject *story = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
     
     // If appropriate, configure the new managed object.
     // Normally you should use accessor methods, but using KVC here avoids the need to add a custom class to the template.
-    [newManagedObject setValue:@"New Story" forKey:kTitleKey];
-    [newManagedObject setValue:@"Story text" forKey:kBodyKey];
-    [newManagedObject setValue:@"tag1, tag2, tag3" forKey:kTagsKey];
-    [newManagedObject setValue:[NSDate date] forKey:kDateKey];
-    [newManagedObject setValue:@"" forKey:kLocationLatitude];
-    [newManagedObject setValue:@"" forKey:kLocationLongitude];
+    [story setValue:@"" forKey:kTitleKey];
+    [story setValue:@"" forKey:kBodyKey];
+    [story setValue:@"" forKey:kTagsKey];
+    [story setValue:[NSDate date] forKey:kDateKey];
+    [story setValue:@"" forKey:kLocationLatitude];
+    [story setValue:@"" forKey:kLocationLongitude];
+    [story setValue:@"" forKey:kImageFilepath];
     
     // Save the context.
     NSError *error = nil;

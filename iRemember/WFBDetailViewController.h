@@ -17,6 +17,7 @@ static NSString * const kTagsKey = @"storyTags";
 static NSString * const kDateKey = @"storyDate";
 static NSString * const kLocationLatitude = @"storyLocationLatitude";
 static NSString * const kLocationLongitude = @"storyLocationLongitude";
+static NSString * const kImageFilepath = @"storyImageFilepath";
 
 @interface WFBDetailViewController : UIViewController <
 CLLocationManagerDelegate,
