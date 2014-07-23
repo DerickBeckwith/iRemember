@@ -180,6 +180,7 @@
 
 - (NSString *)getUniqueFileName
 {
+    // Generate and return a unique file name using UUID.
     NSString *prefix = @"iRemember";
     NSString *guid = [[NSUUID new] UUIDString];
     NSString *uniqueFileName = [NSString stringWithFormat:@"%@_%@.png", prefix, guid];
