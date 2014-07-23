@@ -36,6 +36,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.tableView reloadData];
+}
+
 - (void)insertNewStory:(id)sender
 {
     NSManagedObjectContext *context = [self.fetchedResultsController managedObjectContext];
@@ -116,8 +122,15 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-        [[segue destinationViewController] setDetailItem:object];
+        
+        // There is no selected row for new stories,
+        // so just set the index path to fetch the first story.
+        if (!indexPath) {
+            indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        }
+        
+        NSManagedObject *story = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        [[segue destinationViewController] setDetailItem:story];
     }
 }
 
